@@ -20,7 +20,7 @@ public class BookController {
     private BookService bookService;
 
     @PostMapping("/book")
-    public ResponseEntity<?> postBook(@RequestBody Book book) {
+    public ResponseEntity<String> postBook(@RequestBody Book book) {
         try {
             bookService.insertBook(book);
             return ResponseEntity.ok("Book Accepted");

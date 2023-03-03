@@ -24,11 +24,11 @@ public class BookService {
         if (book.getDiscountCode() == null) {
             return bookRepository.save(book);
         } else {
-            return getDiscount(book);
+            return saveBookWithDiscount(book);
         }
     }
 
-    private Book getDiscount(Book book) throws IOException, InterruptedException {
+    private Book saveBookWithDiscount(Book book) throws IOException, InterruptedException {
         DiscountRequest request = DiscountRequest.builder()
                 .userId(book.getId())
                 .houseId(book.getHouseId())
